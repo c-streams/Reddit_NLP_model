@@ -20,7 +20,7 @@ Using Reddit's open source API, I scraped over 15,000 posts on the hot list over
 
 Since the dataset contains very few numerical columns, there was little EDA I could perform without Natural Language Processing. I therefore decided to look at the distribution of the age of posts (Figure 2). Age was right skewed and revealed the shelf life for the amount of time a post can be on the hot list as 24 hours.
 
-
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/hist.png" width="50%" height="50%">
 
 Figure 2: Distribution of the age of posts 
 
