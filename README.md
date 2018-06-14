@@ -6,8 +6,6 @@ Reddit is a popular social media platform and is the 6th most visited website in
 
 <img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/reddit_post.png" width="50%" height="50%">
 
-Figure 1: Sample Reddit post with labeled features 
-
 With over 234 million users, Reddit has the power to spread content to the masses [1]. This begs the question, what characteristics of a post make it popular or not?
 
 ## Dataset
@@ -22,13 +20,9 @@ Since the dataset contains very few numerical columns, there was little EDA I co
 
 <img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/hist.png" width="50%" height="50%">
 
-Figure 2: Distribution of the age of posts 
-
 I also grouped the posts by subreddit and examined the mean number of comments per post (Figure 3). This revealed subreddits which are much more active than others. The 10 subreddits listed in Figure 3 are also some of the most subscribed to subreddits on Reddit [4].
 
-
-
-Figure 3: Most active subreddits on hot list 
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/predictors.png" width="50%" height="50%">
 
 Even before modeling, it would suggest that posting in a popular subreddit will be important to getting a high number of comments.  I will keep this in mind when modeling. 
 
@@ -36,9 +30,7 @@ Even before modeling, it would suggest that posting in a popular subreddit will 
 
 I decided to compare several Bag of Words NLP methods with various tree and non tree based classification machine learning models. CountVectorizer is the simplest of bag of words methods, where text data is translated into numerical data based on the frequency each word appears in a document (Figure 4). TF-IDF is similar except it penalizes common words and gives rare words more influence. I found TF-IDF to give comparable results to CountVectorizer when paired with the same models.
 
-
-
-Figure 4: Bag of Words NLP explanation 
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/nlp.png" width="50%" height="50%">
 
 I also wanted to compare several tree and non tree based models using these different NLP methods with different features. For the tree based models, I used a simple DecisionTreeClassifer and a tuned RandomForest. For non-tree based models, I used tuned LogisticRegression, KNN, and Multinomial Naive Bayes. For each of these algorithms, I made models using title only, subreddit and age only, and title, subreddit and age as predictors.
 
@@ -48,15 +40,11 @@ Models using only title as the feature performed the worst. It would appear that
 
 The best performing logistic regression model used a Ridge penalty and generalized well to new data after GridsearchCV cross validated optimal penalty and C hyperparameters. This model, and others, were very overfit before tuning, as evidenced by high train accuracy scores and significantly lower test accuracy scores. The model had a 77% accuracy score on the test data (Figure 5).
 
-
-
-Figure 5: Confusion matrix of best logistic regression model 
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/matrix.png" width="50%" height="50%">
 
 After examining the beta coefficients of the model, it became clear that subreddit is the strongest indicator for how popular a post will be. This makes sense since some subreddits have more followers and thus a higher activity than others. In addition the odds of having a large number of comments increase the longer the post is on Reddit. Again, these insights confirm common sense. The top 5 predictors, all subreddits, are gaming, FortNiteBR, pics, funny, and todayilearned (Figure 6). These subreddits, except FortNiteBR, are all in the top 20 most subscribed to subreddits [4]. In the case of FortNiteBR, which is a subreddit for the popular video game FortNite, I believe that my model might be influenced by external news in the particular week my data was scraped. I would need to collect posts over a longer period to correct for this.
 
-
-
-Figure 6: Top 5 predictors of logistic regression model 
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/top.png" width="50%" height="50%">
 
 So what makes a reddit post popular, or at least highly commented? Post to popular subreddits with the most subscribers like funny, FortNiteBR, and gaming subreddits to increase your odds of creating a highly commented post.
 
