@@ -4,7 +4,7 @@
 
 Reddit is a popular social media platform and is the 6th most visited website in the world [1]. It averages 542 million monthly visitors who use the site as a news source, content rating platform, and discussion board [1]. Reddit's default homepage is the hot list, which is the site's most popular posts. The site is structured into subreddits for subject specific content which users can subscribe to. Users can engage with posts in various ways, including commenting, sharing, and up or down voting.  A sample post is shown in Figure 1 below.
 
-
+<img src="https://github.com/c-streams/Reddit_NLP_model/blob/master/images/reddit_post.png" width="50%" height="50%">
 
 Figure 1: Sample Reddit post with labeled features 
 
